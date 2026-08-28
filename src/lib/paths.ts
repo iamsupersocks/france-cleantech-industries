@@ -11,10 +11,9 @@ export function withBase(path: string): string {
 }
 
 export function absoluteUrl(path: string): string {
-  const site = (import.meta.env.SITE || "https://iamsupersocks.github.io").replace(
-    /\/+$/,
-    "",
-  );
+  const site = (
+    import.meta.env.SITE || "https://france-cleantech-industries.com"
+  ).replace(/\/+$/, "");
   const resolved = withBase(path);
   return `${site}${resolved.startsWith("/") ? resolved : `/${resolved}`}`;
 }

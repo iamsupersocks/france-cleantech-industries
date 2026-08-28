@@ -48,15 +48,15 @@ Redirections statiques : `/nos-membres/` → `/membres/`, `/home-page/` → `/`,
 Le workflow `.github/workflows/pages.yml` construit le site avec :
 
 ```text
-BASE_PATH=/france-cleantech-industries
-SITE_URL=https://iamsupersocks.github.io
+BASE_PATH=/
+SITE_URL=https://france-cleantech-industries.com
 ```
 
-La préversion est alors `https://iamsupersocks.github.io/france-cleantech-industries/`.
+Le site public est `https://france-cleantech-industries.com/`.
 
-Avant branchement d'un domaine personnalisé, garder ce `BASE_PATH`. Après un GO humain pour le domaine, passer `BASE_PATH=/` et `SITE_URL` vers le domaine public, puis mettre à jour `public/robots.txt`. Ce dépôt ne touche ni DNS, ni OVH, ni Hostinger, ni WordPress.
+Le domaine personnalisé est attaché à GitHub Pages. Le dépôt ne gère pas les enregistrements DNS, les e-mails OVH, Hostinger ni l'ancien WordPress.
 
-L'activation de GitHub Pages sur le dépôt reste une action humaine.
+GitHub Pages est activé sur le dépôt et déployé par le workflow.
 
 ## Import WordPress
 

@@ -10,7 +10,7 @@ function normalizeBase(value: string | undefined): string {
 }
 
 const site =
-  process.env.SITE_URL ?? "https://iamsupersocks.github.io";
+  process.env.SITE_URL ?? "https://france-cleantech-industries.com";
 const base = normalizeBase(process.env.BASE_PATH);
 
 export default defineConfig({
