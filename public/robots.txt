@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iamsupersocks.github.io/france-cleantech-industries/sitemap-index.xml

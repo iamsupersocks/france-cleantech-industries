@@ -1,0 +1,44 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { formatDate } from "../lib/site";
+import { withBase } from "../lib/paths";
+
+const page = await getEntry("pages", "actualites");
+if (!page) {
+  throw new Error("Missing actualites content");
+}
+const { Content } = await render(page);
+const articles = (await getCollection("articles")).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+);
+---
+
+<Base
+  title={page.data.title}
+  description={page.data.description}
+  path="/actualites/"
+>
+  <div class="shell">
+    <header class="page-head">
+      <p class="hero-kicker">Journal</p>
+      <h1>{page.data.title}</h1>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <ul class="article-list">
+      {
+        articles.map((article) => (
+          <li class="article-item">
+            <a href={withBase(`/${article.id}/`)}>
+              <p class="hero-kicker">{formatDate(article.data.date)}</p>
+              <h2>{article.data.title}</h2>
+              <p>{article.data.excerpt}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
