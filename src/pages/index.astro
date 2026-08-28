@@ -1,0 +1,115 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { siteConfig } from "../lib/site";
+import { withBase } from "../lib/paths";
+
+const page = await getEntry("pages", "accueil");
+if (!page) {
+  throw new Error("Missing accueil content");
+}
+const { Content } = await render(page);
+const members = (await getCollection("members"))
+  .filter((member) => member.data.listed)
+  .sort((a, b) => a.data.order - b.data.order);
+const articles = (await getCollection("articles")).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+);
+---
+
+<Base title={siteConfig.name} description={siteConfig.description} path="/">
+  <div class="shell">
+    <section class="hero">
+      <div>
+        <p class="hero-kicker">Association · France · {siteConfig.founded}</p>
+        <h1>Innover,<br />transformer.</h1>
+      </div>
+      <div class="hero-aside">
+        <p>{siteConfig.tagline}</p>
+        <p>{siteConfig.description}</p>
+        <div class="actions">
+          <a class="button" href={withBase("/membres/")}>Voir les membres</a>
+          <a
+            class="button button-ghost"
+            href={withBase("/finance-cleantechs-industrielles-francaises/")}
+          >
+            Lire l'étude
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <h2>Une industrie verte, souveraine, exportatrice.</h2>
+      </div>
+      <div class="prose">
+        <Content />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Annuaire des membres</h2>
+      <p class="lede">
+        {members.length} PME industrielles innovantes, listées d'après l'annuaire
+        public WordPress.
+      </p>
+      <ol class="member-index">
+        {
+          members.slice(0, 6).map((member, index) => (
+            <li>
+              <a class="member-row" href={withBase(`/${member.id}/`)}>
+                <span class="member-index-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span class:list={["member-logo", { "is-dark": member.data.logoOnDark }]}>
+                  {member.data.logo ? (
+                    <img src={withBase(member.data.logo)} alt="" />
+                  ) : null}
+                </span>
+                <div>
+                  <p class="member-name">{member.data.name}</p>
+                  <p class="member-meta">{member.data.headline}</p>
+                </div>
+                <p class="member-meta">{member.data.joined}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+      <p>
+        <a class="button button-ghost" href={withBase("/membres/")}>
+          Tous les membres
+        </a>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Actualités</h2>
+      <ul class="article-list">
+        {
+          articles.map((article) => (
+            <li class="article-item">
+              <a href={withBase(`/${article.id}/`)}>
+                <p class="hero-kicker">{article.data.date}</p>
+                <h2>{article.data.title}</h2>
+                <p>{article.data.excerpt}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Rester informé</h2>
+      <p class="lede">{siteConfig.newsletterNote}</p>
+      <a
+        class="button"
+        href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Newsletter FCI")}`}
+      >
+        Écrire pour la newsletter
+      </a>
+    </section>
+  </div>
+</Base>

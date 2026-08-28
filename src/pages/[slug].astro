@@ -1,0 +1,86 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { formatDate } from "../lib/site";
+import { withBase } from "../lib/paths";
+
+type MemberProps = {
+  kind: "member";
+  entry: CollectionEntry<"members">;
+};
+type ArticleProps = {
+  kind: "article";
+  entry: CollectionEntry<"articles">;
+};
+
+export async function getStaticPaths() {
+  const members = await getCollection("members");
+  const articles = await getCollection("articles");
+  return [
+    ...members.map((entry) => ({
+      params: { slug: entry.id },
+      props: { kind: "member" as const, entry },
+    })),
+    ...articles.map((entry) => ({
+      params: { slug: entry.id },
+      props: { kind: "article" as const, entry },
+    })),
+  ];
+}
+
+const props = Astro.props as MemberProps | ArticleProps;
+const { kind, entry } = props;
+const { Content } = await render(entry);
+const title = kind === "member" ? entry.data.name : entry.data.title;
+const description =
+  kind === "member" ? entry.data.summary : entry.data.excerpt;
+const image = kind === "member" ? entry.data.logo : entry.data.image;
+---
+
+<Base
+  title={title}
+  description={description}
+  path={`/${entry.id}/`}
+  image={image || "/images/logo-fci.png"}
+>
+  <div class="shell">
+    <header class="page-head">
+      <p class="hero-kicker">
+        {kind === "member" ? "Membre" : formatDate(entry.data.date)}
+      </p>
+      <h1>{title}</h1>
+      {
+        kind === "member" ? (
+          <p class="lede">{entry.data.headline}</p>
+        ) : (
+          <p class="lede">{entry.data.excerpt}</p>
+        )
+      }
+    </header>
+    {
+      kind === "article" && entry.data.image ? (
+        <img src={withBase(entry.data.image)} alt="" />
+      ) : null
+    }
+    {
+      kind === "member" && entry.data.logo ? (
+        <p>
+          <span class:list={["member-logo", { "is-dark": entry.data.logoOnDark }]}>
+            <img src={withBase(entry.data.logo)} alt={`Logo ${entry.data.name}`} />
+          </span>
+        </p>
+      ) : null
+    }
+    <article class="section prose">
+      <Content />
+    </article>
+    <p>
+      <a
+        class="button button-ghost"
+        href={withBase(kind === "member" ? "/membres/" : "/actualites/")}
+      >
+        {kind === "member" ? "Retour aux membres" : "Retour aux actualités"}
+      </a>
+    </p>
+  </div>
+</Base>

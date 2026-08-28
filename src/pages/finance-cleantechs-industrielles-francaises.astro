@@ -1,0 +1,57 @@
+---
+import { getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { withBase } from "../lib/paths";
+
+const page = await getEntry("pages", "etude");
+if (!page) {
+  throw new Error("Missing etude content");
+}
+const { Content } = await render(page);
+---
+
+<Base
+  title={page.data.title}
+  description={page.data.description}
+  path="/finance-cleantechs-industrielles-francaises/"
+  image="/images/etude-cover.png"
+>
+  <div class="shell">
+    <header class="page-head">
+      <p class="hero-kicker">Étude 2024</p>
+      <h1>Freins et solutions pour financer les cleantechs industrielles françaises</h1>
+    </header>
+    <section class="section split">
+      <div>
+        <img src={withBase("/images/etude-cover.png")} alt="" />
+      </div>
+      <div class="actions">
+        <a
+          class="button"
+          href={withBase(
+            "/documents/Etude-FCI-Dynamiques-de-marche-et-de-financement-des-Cleantech-en-France.pdf",
+          )}
+        >
+          Télécharger l'étude
+        </a>
+        <a
+          class="button button-ghost"
+          href={withBase(
+            "/documents/qu-est-ce-qui-bloque-le-developpement-des-cleantec.pdf",
+          )}
+        >
+          Lire la BD
+        </a>
+      </div>
+    </section>
+    <section class="section prose">
+      <Content />
+    </section>
+    <section class="section">
+      <img
+        src={withBase("/images/etude-bd.png")}
+        alt="Illustration Watts Else / FCI sur le financement des cleantechs"
+      />
+    </section>
+  </div>
+</Base>

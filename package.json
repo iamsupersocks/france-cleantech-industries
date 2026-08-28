@@ -1,0 +1,32 @@
+{
+  "name": "france-cleantech-industries",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site statique de France Cleantech Industries, publié via GitHub Pages.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint .",
+    "typecheck": "astro check && tsc --noEmit",
+    "check:site": "tsx scripts/check-site.ts",
+    "verify": "npm run lint && npm run typecheck && npm run build && npm run check:site"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/sitemap": "^3.7.3",
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^22.20.1",
+    "astro": "^5.18.2",
+    "eslint": "^9.39.5",
+    "eslint-plugin-astro": "^1.7.0",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.68.0"
+  }
+}

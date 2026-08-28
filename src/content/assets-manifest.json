@@ -1,0 +1,197 @@
+[
+  {
+    "path": "public/documents/2-an-de-FCI.pdf",
+    "bytes": 4468883,
+    "sha256": "8f40c56f60c94fcd61dd1aaf6c5e7b4dfe883d5d881f769f1b3c75e648c49dfd"
+  },
+  {
+    "path": "public/documents/2023_12_15_CP-FCI-Chaleur-fatale.pdf",
+    "bytes": 128486,
+    "sha256": "96996cf60a1c6c0c28d66ff9d193a12bdefb2b71a1cca55ed999b632afd1b2e2"
+  },
+  {
+    "path": "public/documents/2023_12_15_CP-FCI-Stockage-delectricite.pdf",
+    "bytes": 126805,
+    "sha256": "23b8466a0ca646f078f3633671a54cf6ad35e41e3ff07a37ecd0eacc2a149f50"
+  },
+  {
+    "path": "public/documents/2023_12_15_FCI-contribution-SFEC-chaleur-fatale.pdf",
+    "bytes": 182950,
+    "sha256": "81e8cf495438ed5da6e0682b46af0f55e8c4ea468f8be4216d061c83ee125278"
+  },
+  {
+    "path": "public/documents/2023_12_15_FCI-contribution-SFEC-stockage-delectrictie.pdf",
+    "bytes": 156723,
+    "sha256": "18eee32419a192155effa79d6274ce9476ba8a24e01628f1c44e5257953279cd"
+  },
+  {
+    "path": "public/documents/23_04_19_CP-CREATION-DE-LASSOCIATION-FRANCE-CLEANTECH-INDUSTRIES.pdf",
+    "bytes": 691321,
+    "sha256": "d1263eaf3d37954d1920f81c3df3328a30544573ea1a7189eed70ecb3bbd9979"
+  },
+  {
+    "path": "public/documents/Communique-FCI-1-an-de-FCI-1.pdf",
+    "bytes": 231497,
+    "sha256": "5dcd7d5e808f265195ede260495471aaf4b153ba8a63e51893831a85e2d203c0"
+  },
+  {
+    "path": "public/documents/Etude-FCI-Dynamiques-de-marche-et-de-financement-des-Cleantech-en-France.pdf",
+    "bytes": 1254513,
+    "sha256": "d2033c50d5c8e194c15227e01d8d9332924c243ddfad14d056ad0047aadc308a"
+  },
+  {
+    "path": "public/documents/Nouvelle-Annee-2024_le-mot-du-President.pdf",
+    "bytes": 174476,
+    "sha256": "2c4404e2d97b87d1d6af085576343f075504d043e230a69cb103ed2fb1d99f22"
+  },
+  {
+    "path": "public/documents/Nouvelle-Presidence-FCI_11_12_24.pdf",
+    "bytes": 265489,
+    "sha256": "fbc693026abe9f47be8b639109ca0c309712aae992f460552c7330f051515472"
+  },
+  {
+    "path": "public/documents/qu-est-ce-qui-bloque-le-developpement-des-cleantec.pdf",
+    "bytes": 35941332,
+    "sha256": "3344f3dcae3a1737808e6d259084dc75739263a298ee4d90561ba95c48ca93fd"
+  },
+  {
+    "path": "public/images/articles/cee.png",
+    "bytes": 97613,
+    "sha256": "2efdd7110975bbcd0b17085c4bf757013ef4d839c2eab9b3447fc09142b5d410"
+  },
+  {
+    "path": "public/images/articles/enertime-stolect.png",
+    "bytes": 113407,
+    "sha256": "a27456316278226300046d523a19ef1e48fcca0efc86d477198e273f2c9168dd"
+  },
+  {
+    "path": "public/images/articles/forum-pexe.png",
+    "bytes": 125308,
+    "sha256": "325165423f249a243e59ef241e7489d8a17ebabc9730166c188cb505202de9bc"
+  },
+  {
+    "path": "public/images/etude-bd.png",
+    "bytes": 2646024,
+    "sha256": "7fdf71341cfe488aec540934dc6ae707d720eeaf2317117a6d0449328f84affe"
+  },
+  {
+    "path": "public/images/etude-cover.png",
+    "bytes": 172220,
+    "sha256": "00b9263065615d7c55dd0fdb11ae08a365dc8358015d73cf6328b56a320cc725"
+  },
+  {
+    "path": "public/images/ico-fci.png",
+    "bytes": 2088,
+    "sha256": "4370d9f89d47eb96e8b102654e97810c4f9e6d222b67e165313404b02069dc8c"
+  },
+  {
+    "path": "public/images/logo-fci.png",
+    "bytes": 4376,
+    "sha256": "ba62ec9c6ee0ffc92d9682feda83816f25363632a712e44a6027ccd969b4d86a"
+  },
+  {
+    "path": "public/images/logo-mark.png",
+    "bytes": 26737,
+    "sha256": "5cc84090d3272d67b4d6e7bc27c712b3da88c39e38a066a4204157b0dc816b73"
+  },
+  {
+    "path": "public/images/members/airthium.png",
+    "bytes": 67467,
+    "sha256": "cc448fd65cbc521fc4ba47327263bcf1d6e8d6d9d10025f1c8168531f63b2576"
+  },
+  {
+    "path": "public/images/members/ananke.png",
+    "bytes": 21048,
+    "sha256": "3fb5d6e23eefa417822bc3fb5a2f6a36f7ee560de67a9b60715bfafc65d1b442"
+  },
+  {
+    "path": "public/images/members/cixten.png",
+    "bytes": 19537,
+    "sha256": "1442e8f080e8bdc703426043eeeb77c9dcad7c80b259de992c55b98bac7fd1bb"
+  },
+  {
+    "path": "public/images/members/eco-tech-ceram.png",
+    "bytes": 14102,
+    "sha256": "de99f7760e8998ac5d6fa54ec5fcd83e42dc5f4df1ad7bad503348572d671f1b"
+  },
+  {
+    "path": "public/images/members/enertime.png",
+    "bytes": 14626,
+    "sha256": "c7a8b4bcb14cfe8abdb4377983546070b86b483bc32e006bb45ce0be4303c988"
+  },
+  {
+    "path": "public/images/members/enogia-logo.png",
+    "bytes": 7734,
+    "sha256": "353d4a8a9bb8a9643d52186a703a1847169a5549d163060f894446652bae03f8"
+  },
+  {
+    "path": "public/images/members/entent.png",
+    "bytes": 10151,
+    "sha256": "bf9e485f6ee99917d78bc871a28e8e6a074b76a9a9ea9ebaa23f6f2aa48e141b"
+  },
+  {
+    "path": "public/images/members/equium.png",
+    "bytes": 20995,
+    "sha256": "76784c0437b133c0dbdabef1fc7996f1712df1d489bf78f7f903e0c924dca2d4"
+  },
+  {
+    "path": "public/images/members/exora_energy_logo.jpeg",
+    "bytes": 5230,
+    "sha256": "e29f45faf691b4140dbedfa744c8b809cabfff1779367a4187298f1fe8f75fd8"
+  },
+  {
+    "path": "public/images/members/extrajool.png",
+    "bytes": 8987,
+    "sha256": "1504851c3cbf01167da18927fa7250d25335402b1046963e7e910d5f7b400882"
+  },
+  {
+    "path": "public/images/members/fenix-energy.jpeg",
+    "bytes": 7500,
+    "sha256": "5b8313923ca53969dcb33e8471fba8537408484e9027260c9f397940929267fb"
+  },
+  {
+    "path": "public/images/members/heatlift-logo.png",
+    "bytes": 14027,
+    "sha256": "42541aacfbe24e784fc90617c582d1c78271c42637d77a503b57b261c8be77de"
+  },
+  {
+    "path": "public/images/members/hevatech.png",
+    "bytes": 13085,
+    "sha256": "98cc2b2332940587d1212e19034036741be0f5eefc437bfdb07a976185a10b4f"
+  },
+  {
+    "path": "public/images/members/packgy.png",
+    "bytes": 10569,
+    "sha256": "644f74e28ead23b7a34a4c22f403ca30b958bc706c849a39e4a7fd1915bb1823"
+  },
+  {
+    "path": "public/images/members/propellane.png",
+    "bytes": 9295,
+    "sha256": "f230027b4b42dd4c3d674939c97aa213ad486bd975a2a4b74aeb31ef6c1c93d4"
+  },
+  {
+    "path": "public/images/members/sarus.png",
+    "bytes": 10004,
+    "sha256": "7f26d8ad3aba868b656868b083c2f22130ded730bacafe1dab66ec78ec24a1f2"
+  },
+  {
+    "path": "public/images/members/savoie-process-logo.png",
+    "bytes": 31478,
+    "sha256": "478392f434ec3ccedf223ab4e0086d72dac3b1b6de26a875d01dbb1d61301463"
+  },
+  {
+    "path": "public/images/members/stolect.png",
+    "bytes": 10745,
+    "sha256": "e0eb3c5be46418eacb135680e05250b9d2b225d8b9ac3b4d7c374d083f306120"
+  },
+  {
+    "path": "public/images/members/terrao.png",
+    "bytes": 6933,
+    "sha256": "2fd928a0e6b5155089f56187a9608171650502dd7f0dc3db815653e83a61fb1b"
+  },
+  {
+    "path": "public/images/members/tmw-logo.png",
+    "bytes": 51272,
+    "sha256": "6b5ad9406c9374c4765a12bac2f847cfe17867a357318fc66b95c10e4177e5bc"
+  }
+]

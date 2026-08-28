@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import { withBase } from "../lib/paths";
+---
+
+<Base
+  title="Page introuvable"
+  description="Cette adresse n'existe pas sur le site statique de France Cleantech Industries."
+  path="/404.html"
+>
+  <div class="shell">
+    <header class="page-head">
+      <p class="hero-kicker">404</p>
+      <h1>Page introuvable</h1>
+    </header>
+    <p class="lede">
+      L'adresse demandée n'a pas d'équivalent dans cette préversion. Les URLs
+      WordPress principales sont conservées ou redirigées.
+    </p>
+    <p>
+      <a class="button" href={withBase("/")}>Retour à l'accueil</a>
+    </p>
+  </div>
+</Base>

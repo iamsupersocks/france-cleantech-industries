@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { withBase } from "../../lib/paths";
+
+export async function getStaticPaths() {
+  const documents = await getCollection("documents");
+  return documents.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Base
+  title={entry.data.title}
+  description={entry.data.summary}
+  path={`/document/${entry.id}/`}
+>
+  <div class="shell">
+    <header class="page-head">
+      {entry.data.category ? <p class="hero-kicker">{entry.data.category}</p> : null}
+      <h1>{entry.data.title}</h1>
+    </header>
+    <article class="section prose">
+      <Content />
+    </article>
+    <p>
+      <a class="button" href={withBase(entry.data.file)}>Télécharger le PDF</a>
+      <a
+        class="button button-ghost"
+        href={withBase("/documents-france-cleantech-industries/")}
+      >
+        Tous les documents
+      </a>
+    </p>
+  </div>
+</Base>
