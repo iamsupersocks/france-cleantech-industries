@@ -1,0 +1,100 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { memberFilters } from "../lib/site";
+import { withBase } from "../lib/paths";
+
+const page = await getEntry("pages", "membres");
+if (!page) {
+  throw new Error("Missing membres content");
+}
+const { Content } = await render(page);
+const members = (await getCollection("members"))
+  .filter((member) => member.data.listed)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title={page.data.title} description={page.data.description} path="/membres/">
+  <div class="shell">
+    <header class="page-head">
+      <p class="hero-kicker">Annuaire</p>
+      <h1>{page.data.title}</h1>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <section class="section">
+      <p class="hero-kicker">Filtrer par technologie</p>
+      <div class="member-filters" data-member-filters>
+        {
+          memberFilters.map((filter, index) => (
+            <button
+              type="button"
+              data-filter={filter.id}
+              aria-pressed={index === 0 ? "true" : "false"}
+            >
+              {filter.label}
+            </button>
+          ))
+        }
+      </div>
+      <ol class="member-index" data-member-index>
+        {
+          members.map((member, index) => (
+            <li>
+              <a
+                class="member-row"
+                href={withBase(`/${member.id}/`)}
+                data-filters={member.data.filters.join(" ")}
+              >
+                <span class="member-index-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span class:list={["member-logo", { "is-dark": member.data.logoOnDark }]}>
+                  {member.data.logo ? (
+                    <img src={withBase(member.data.logo)} alt={`Logo ${member.data.name}`} />
+                  ) : null}
+                </span>
+                <div>
+                  <p class="member-name">
+                    {member.data.name}
+                    {member.data.isNew ? <span class="tag"> Nouveau</span> : null}
+                  </p>
+                  <p class="member-meta">{member.data.headline}</p>
+                </div>
+                <div>
+                  <p class="member-meta">{member.data.summary}</p>
+                  <div class="tag-row">
+                    {member.data.tags.map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                  <p class="member-meta">{member.data.joined}</p>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const root = document.querySelector("[data-member-filters]");
+  const rows = document.querySelectorAll<HTMLAnchorElement>("[data-member-index] .member-row");
+  root?.addEventListener("click", (event) => {
+    const button = (event.target as HTMLElement).closest("button[data-filter]");
+    if (!button) {
+      return;
+    }
+    const filter = button.getAttribute("data-filter") ?? "all";
+    root.querySelectorAll("button").forEach((item) => {
+      item.setAttribute("aria-pressed", String(item === button));
+    });
+    rows.forEach((row) => {
+      const tokens = (row.dataset.filters ?? "").split(/\s+/).filter(Boolean);
+      row.hidden = filter !== "all" && !tokens.includes(filter);
+    });
+  });
+</script>

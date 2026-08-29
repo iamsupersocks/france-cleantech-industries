@@ -1,0 +1,349 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { siteConfig } from "../lib/site";
+import { withBase } from "../lib/paths";
+
+const page = await getEntry("pages", "accueil");
+if (!page) {
+  throw new Error("Missing accueil content");
+}
+const members = (await getCollection("members"))
+  .filter((member) => member.data.listed)
+  .sort((a, b) => a.data.order - b.data.order);
+const articles = (await getCollection("articles")).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+);
+
+const missions = [
+  {
+    title: "Développement de l'innovation",
+    text: "L'association vise à stimuler l'innovation industrielle en France, centrée sur la transition énergétique.",
+  },
+  {
+    title: "Défense des intérêts",
+    text: "Nous nous engageons à représenter et défendre les intérêts de ses membres auprès des entités gouvernementales et régulatrices, tant au niveau national qu'européen.",
+  },
+  {
+    title: "Réseau étendu",
+    text: "FCI s'intègre dans le réseau des associations et fédérations dédiées à l'environnement et à la transition énergétique, cherchant à établir des partenariats forts avec diverses structures de soutien et de réflexion.",
+  },
+];
+---
+
+<Base
+  title={page.data.title}
+  description={page.data.description}
+  path="/"
+  home
+>
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="shell home-hero-grid">
+      <div class="home-hero-copy">
+        <p class="hero-kicker">Association · France · {siteConfig.founded}</p>
+        <h1 id="home-title">France Cleantech Industries</h1>
+        <h2 class="home-hero-tagline">{siteConfig.tagline}</h2>
+        <p>
+          Les membres de France Cleantech Industries se mobilisent pour réussir
+          la transition énergétique dans l'industrie en France, et croient
+          fermement en la naissance d'une industrie verte française qui soit à
+          la fois souveraine, décarbonée et exportatrice du savoir-faire
+          industriel français.
+        </p>
+        <div class="actions">
+          <a class="button" href={withBase("/notre-histoire/")}>Notre histoire</a>
+          <a class="button button-blue" href={withBase("/membres/")}>Nos membres</a>
+        </div>
+      </div>
+      <div class="home-hero-visual">
+        <div class="home-hero-photo">
+          <img
+            src={withBase("/images/hero-industrie.jpg")}
+            alt="Installation industrielle de tuyauterie, symbole des cleantechs de process"
+            width="1024"
+            height="1536"
+          />
+        </div>
+        <img
+          class="home-hero-badge"
+          src={withBase("/images/badge-energie-verte.png")}
+          alt=""
+          width="122"
+          height="122"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="home-band" aria-labelledby="home-intro-title">
+    <div class="shell">
+      <article class="home-blue-banner">
+        <div>
+          <h2 id="home-intro-title">{siteConfig.description}</h2>
+          <p>
+            Actifs à travers la France, nous visons des collaborations avec
+            d'autres associations de Cleantech européennes pour stimuler les PME
+            et propulser l'innovation durable au-delà des frontières.
+          </p>
+        </div>
+        <img
+          class="home-blue-mark"
+          src={withBase("/images/ico-fci.png")}
+          alt=""
+          width="48"
+          height="70"
+        />
+      </article>
+      <div class="home-band-grid">
+        <article class="home-panel">
+          <p>
+            FCI défend les intérêts communs des PME industrielles françaises.
+            Elle s'intéresse notamment à l'accès aux marchés pour les nouvelles
+            technologies portées par ses membres, au long temps de maturation
+            des Cleantech, à leurs besoins en capitaux, à leurs modalités de
+            financement, comme à l'offre permanente d'emplois techniques et
+            scientifiques qu'elles expriment.
+          </p>
+        </article>
+        <figure class="home-overlap-card">
+          <img
+            src={withBase("/images/industrie-tuyauterie.jpg")}
+            alt=""
+            width="437"
+            height="328"
+          />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell split">
+      <div>
+        <h2>Neutralité technologique</h2>
+      </div>
+      <div class="prose">
+        <p>
+          FCI est consciente qu'il n'y aura pas de solution unique pour la
+          décarbonation de l'économie. Pour cette raison, elle demeure neutre
+          vis-à-vis des technologies ; quelle que soit votre solution, elle
+          peut être décisive pour la transition énergétique : valorisation de
+          chaleur fatale, stockage d'électricité, hydrogène, compression de
+          gaz, pompes à chaleur, purification de l'air, capture du CO2. Ce
+          n'est qu'une partie des secteurs d'activité des entreprises membres
+          de FCI.
+        </p>
+        <p>
+          <a class="button button-ghost" href={withBase("/membres/")}>
+            Nos membres
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-missions">
+    <div class="shell">
+      <div class="split">
+        <div>
+          <p class="hero-kicker">Missions</p>
+          <h2>Nos missions, nos objectifs</h2>
+        </div>
+        <div class="prose">
+          <p>
+            L'association se propose de promouvoir le développement en France
+            de l'innovation industrielle au service de la transition
+            énergétique ; elle aspire à représenter et à défendre les intérêts
+            collectifs de ses membres auprès des tiers, notamment des pouvoirs
+            publics français et européens ainsi que des autorités de
+            régulation ; elle veut aussi devenir un centre de veille et de
+            concertation sur les évolutions réglementaires, techniques et
+            économiques de la filière comme de partage des informations sur les
+            questions d'intérêt commun.
+          </p>
+          <p>
+            Pour ce faire, FCI s'intègre au réseau des associations et de
+            fédérations françaises qui se battent pour la préservation de
+            l'environnement et pour la transition énergétique.
+          </p>
+          <p>
+            <a
+              class="button"
+              href={withBase("/documents-france-cleantech-industries/")}
+            >
+              Découvrez nos communiqués
+            </a>
+          </p>
+        </div>
+      </div>
+      <ul class="home-mission-grid">
+        {
+          missions.map((mission) => (
+            <li class="home-mission-card">
+              <h3>{mission.title}</h3>
+              <p>{mission.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="home-members-head">
+        <div>
+          <p class="hero-kicker">Annuaire</p>
+          <h2>Nos membres</h2>
+          <p class="lede">
+            {members.length} PME industrielles innovantes, listées d'après
+            l'annuaire public WordPress.
+          </p>
+        </div>
+        <a class="button button-ghost" href={withBase("/membres/")}>
+          Tous les membres
+        </a>
+      </div>
+      <ol class="member-index">
+        {
+          members.slice(0, 6).map((member, index) => (
+            <li>
+              <a class="member-row" href={withBase(`/${member.id}/`)}>
+                <span class="member-index-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span
+                  class:list={[
+                    "member-logo",
+                    { "is-dark": member.data.logoOnDark },
+                  ]}
+                >
+                  {member.data.logo ? (
+                    <img src={withBase(member.data.logo)} alt="" />
+                  ) : null}
+                </span>
+                <div>
+                  <p class="member-name">{member.data.name}</p>
+                  <p class="member-meta">{member.data.headline}</p>
+                </div>
+                <p class="member-meta">{member.data.joined}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="home-study" aria-labelledby="study-title">
+    <div class="shell home-study-grid">
+      <div>
+        <p class="hero-kicker">Étude 2024</p>
+        <h2 id="study-title">
+          L'industrie cleantech française en péril : comprendre les défis et
+          agir
+        </h2>
+        <p>
+          Les PME Cleantech jouent un rôle essentiel dans la transition
+          écologique et l'innovation industrielle. Pourtant, elles font face à
+          des obstacles majeurs qui freinent leur croissance.
+        </p>
+        <ul class="home-study-list">
+          <li>Financements inadaptés aux cycles longs de l'industrie</li>
+          <li>Investissements en infrastructure et R&amp;D coûteux</li>
+          <li>Difficulté à passer du prototype à l'industrialisation</li>
+          <li>Partenariats complexes avec les grands groupes</li>
+        </ul>
+        <p>
+          Notre étude approfondie de 60 pages analyse ces enjeux et propose des
+          pistes d'action concrètes pour aider les entreprises du secteur à
+          surmonter ces défis.
+        </p>
+        <div class="actions">
+          <a
+            class="button"
+            href={withBase("/finance-cleantechs-industrielles-francaises/")}
+          >
+            Accéder à l'étude
+          </a>
+          <a
+            class="button button-ghost"
+            href={withBase(
+              "/documents/qu-est-ce-qui-bloque-le-developpement-des-cleantec.pdf",
+            )}
+          >
+            Découvrir l'étude FCI en BD
+          </a>
+        </div>
+      </div>
+      <figure class="home-overlap-card home-overlap-card-dark">
+        <img
+          src={withBase("/images/etude-cover.png")}
+          alt="Couverture de l'étude FCI 2024 sur le financement des cleantechs"
+          width="600"
+          height="800"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell split">
+      <div>
+        <p class="hero-kicker">Ressources</p>
+        <h2>Découvrir nos communiqués pour la SFEC et le PPE</h2>
+        <p class="lede">
+          Les positions publiques de FCI restent accessibles dans la
+          bibliothèque statique, aux mêmes adresses que sur l'ancien site.
+        </p>
+        <a
+          class="button"
+          href={withBase("/documents-france-cleantech-industries/")}
+        >
+          Nos documents
+        </a>
+      </div>
+      <figure class="home-overlap-card">
+        <img
+          src={withBase("/images/industrie-echangeur.jpg")}
+          alt=""
+          width="464"
+          height="309"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <h2>Actualités</h2>
+      <ul class="article-list">
+        {
+          articles.map((article) => (
+            <li class="article-item">
+              <a href={withBase(`/${article.id}/`)}>
+                <p class="hero-kicker">{article.data.date}</p>
+                <h2>{article.data.title}</h2>
+                <p>{article.data.excerpt}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="home-newsletter">
+    <div class="shell">
+      <p class="hero-kicker">Newsletter</p>
+      <h2>Inscrivez-vous à notre newsletter</h2>
+      <p class="lede">{siteConfig.newsletterNote}</p>
+      <a
+        class="button"
+        href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Newsletter FCI")}`}
+      >
+        Écrire pour la newsletter
+      </a>
+    </div>
+  </section>
+</Base>

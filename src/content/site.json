@@ -1,0 +1,74 @@
+{
+  "name": "France Cleantech Industries",
+  "shortName": "FCI",
+  "tagline": "Innover, Transformer : Prêts pour l'Énergie de Demain?",
+  "description": "Depuis mars 2023, France Cleantech Industries est l'association française des PME industrielles innovantes de la transition énergétique.",
+  "founded": "mars 2023",
+  "email": "france.cleantech.industries@gmail.com",
+  "linkedin": "https://www.linkedin.com/company/france-cleantech-industries-fci/",
+  "contacts": [
+    {
+      "label": "Email",
+      "value": "france.cleantech.industries@gmail.com",
+      "href": "mailto:france.cleantech.industries@gmail.com"
+    },
+    {
+      "label": "Président",
+      "value": "frederic.thevenod@hevatech.fr",
+      "href": "mailto:frederic.thevenod@hevatech.fr"
+    },
+    {
+      "label": "Secrétaire générale",
+      "value": "anael.baulard@gmail.com",
+      "href": "mailto:anael.baulard@gmail.com"
+    }
+  ],
+  "newsletterNote": "Chaque semaine nous envoyons un récapitulatif des activités de nos membres ou des avancées dans le secteur. Pour recevoir ces actualités, écrivez à france.cleantech.industries@gmail.com avec l'objet Newsletter FCI. Cette préversion n'ouvre pas de formulaire d'inscription.",
+  "bureau": [
+    {
+      "name": "Frédéric Thevenod",
+      "role": "Président de l'association",
+      "linkedin": "https://fr.linkedin.com/in/fr%C3%A9d%C3%A9ric-thevenod-b589426",
+      "bio": "Frédéric Thévenod a fondé la société H2P en 2009 après 13 années passées chez Renault et Dassault, après une formation d'ingénieur INSA.\n\nIl a développé en 15 ans une technologie innovante de récupération de chaleur fatale, qui propose aux industriels une solution de décarbonation efficace avec des ROI attractifs.\n\nEn 2023 H2P fusionne avec HEVATECH grace au concours de l'énergéticien EREN Groupe et de la Banque des Territoires, Frédéric devient alors Directeur Business Developpement et des Programmes de HEVATECH, une entreprise spécialisée dans la valorisation des rejets thermiques industriels. Les premières réalisations sont désormais fonctionnelles et le déploiement se poursuit.\n\nParallèlement à son rôle dans HEVATECH, Frédéric occupe le poste de Président de France Cleantech Industries. Cette double fonction lui permet d'avoir une compréhension approfondie des défis et des opportunités du secteur cleantech en France."
+    },
+    {
+      "name": "Antoine Meffre",
+      "role": "Vice Président",
+      "linkedin": "https://fr.linkedin.com/in/antoine-meffre-79a80727",
+      "bio": "Antoine Meffre est fondateur et président d'Eco-Tech Ceram, une entreprise créée en 2015, spécialisée dans la valorisation de la chaleur fatale industrielle pour réduire les émissions de CO2 et améliorer l'efficacité énergétique des industries lourdes.\n\nSon engagement se reflète également dans ses activités; où il développe des technologies permettant de réduire les coûts énergétiques et les émissions de CO2 tout en renforçant la compétitivité économique des entreprises. Antoine Meffre est reconnu comme un acteur clé de la transition écologique en France, œuvrant activement pour une industrie plus verte et résiliente."
+    },
+    {
+      "name": "Jouad Zemmouri",
+      "role": "Vice Président",
+      "linkedin": "https://fr.linkedin.com/in/jaouad-zemmouri-3344ab1",
+      "bio": "Jaouad Zemmouri est fondateur et président de TERRAO, il combine expertise scientifique et entrepreneuriat dans le domaine des technologies propres.\n\nJaouad Zemmouri est le concepteur de technologies innovantes :\n\n- TERRAO® : un système permettant de diminuer, voire supprimer, la pollution de l'air liée aux activités industrielles et humaines\n- CARBOdown® : une technologie visant à réduire les émissions de CO2\n- Terraosave : un système de lavage des fumées industrielles captant la pollution et récupérant l'énergie."
+    },
+    {
+      "name": "Guillaume Arnaud",
+      "role": "Vice Président",
+      "linkedin": "https://www.linkedin.com/in/guillaume-arnaud-911538162/",
+      "bio": "Ingénieur de formation, Guillaume Arnaud évolue depuis plusieurs années dans le domaine de la valorisation énergétique et de la transition industrielle. Il rejoint la FCI en tant que Vice-Président, où il apporte sa contribution sur les enjeux d'export et d'ouverture internationale des membres.\n\nDiplômé de l'Icam Toulouse, avec une spécialisation en thermodynamique et une expérience au Royaume-Uni, Guillaume s'intéresse particulièrement aux technologies qui allient performance énergétique et impact environnemental positif.\n\nActuellement ingénieur commercial Europe chez Enogia, il participe au développement de solutions permettant de transformer la chaleur fatale en électricité à travers la technologie ORC. Ce rôle lui a permis d'acquérir une solide expérience de terrain, au contact direct des acteurs industriels et environnementaux européens."
+    },
+    {
+      "name": "Eric Morelle",
+      "role": "Trésorier",
+      "linkedin": "https://fr.linkedin.com/in/eric-morelle/fr",
+      "bio": "Eric Morelle occupe le poste de Trésorier de France Cleantech Industries.\n\nIl est aussi Co-fondateur et CEO d'ExtraJool, une startup innovante dans le secteur de l'énergie.\n\nChez ExtraJool, Eric Morelle dirige une équipe d'experts qui développe des technologies pour :\n\n- Valoriser la chaleur fatale industrielle.\n- Réduire significativement les factures d'électricité des clients industriels.\n- Contribuer à la réduction des émissions de CO2 et à l'amélioration de l'efficacité énergétique.\n\nSon approche combine expertise financière, innovation technologique et engagement envers la transition énergétique, reflétant les objectifs de France Cleantech Industries dans le soutien aux PME innovantes du secteur."
+    },
+    {
+      "name": "Anaël Baulard",
+      "role": "Secrétaire Générale",
+      "linkedin": "https://fr.linkedin.com/in/anael-baulard",
+      "bio": "Anaël Baulard est ingénieur d'affaires et possède une expérience internationale acquise notamment chez ENERTIME, Schneider Electric et auprès de l'UNHCR au Bangladesh. Spécialiste de la valorisation de la chaleur fatale et des solutions énergétiques pour les marchés émergents, il coordonne les membres de FCI et s'engage activement pour rendre les technologies propres accessibles et compétitives en France."
+    }
+  ],
+  "source": {
+    "wordpress": "https://www.france-cleantech-industries.com/",
+    "importedAt": "2026-08-28",
+    "pages": 32,
+    "posts": 4,
+    "media": 299,
+    "scopedPages": 29,
+    "scopedPosts": 4
+  }
+}

@@ -1,0 +1,147 @@
+---
+import "../styles/global.css";
+import { siteConfig, navItems } from "../lib/site";
+import { absoluteUrl, withBase } from "../lib/paths";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  home?: boolean;
+}
+
+const {
+  title,
+  description,
+  path,
+  image = "/images/logo-fci.png",
+  home = false,
+} = Astro.props;
+const pageTitle =
+  title === siteConfig.name ? title : `${title} — ${siteConfig.shortName}`;
+const canonical = absoluteUrl(path);
+const ogImage = absoluteUrl(image);
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={withBase("/images/ico-fci.png")} type="image/png" />
+    <link rel="apple-touch-icon" href={withBase("/images/logo-mark.png")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class={home ? "is-home" : undefined}>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href={withBase("/")}>
+          <img
+            src={withBase("/images/logo-fci.png")}
+            alt=""
+            width="48"
+            height="48"
+          />
+          <span class="brand-name">France Cleantech<br />Industries</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-controls="navigation"
+          aria-expanded="false"
+        >
+          Menu
+        </button>
+        <nav class="nav" id="navigation" aria-label="Navigation principale">
+          <ul>
+            {
+              navItems.map((item) => {
+                const href = withBase(item.href);
+                const isCurrent =
+                  item.href === "/"
+                    ? currentPath === withBase("/")
+                    : currentPath.startsWith(href);
+                return (
+                  <li>
+                    <a href={href} aria-current={isCurrent ? "page" : undefined}>
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="contenu">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <p class="footer-title">À propos de FCI</p>
+          <p>
+            {siteConfig.name}<br />
+            Association loi 1901, fondée en {siteConfig.founded}.
+          </p>
+          <p>
+            <a href={withBase("/notre-histoire/")}>Notre histoire</a>
+            ·
+            <a href={withBase("/membres/")}>Nos membres</a>
+          </p>
+        </div>
+        <div>
+          <p class="footer-title">Ressources</p>
+          <p>
+            <a href={withBase("/actualites/")}>Actualités</a><br />
+            <a href={withBase("/documents-france-cleantech-industries/")}>
+              Documents
+            </a><br />
+            <a href={withBase("/finance-cleantechs-industrielles-francaises/")}>
+              Étude financement
+            </a>
+          </p>
+        </div>
+        <div>
+          <p class="footer-title">S'engager</p>
+          <p>
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><br />
+            <a href={withBase("/contact/")}>Nous contacter</a><br />
+            <a href={siteConfig.linkedin} rel="noreferrer">Suivre sur LinkedIn</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+      const nav = document.querySelector<HTMLElement>(".nav");
+      toggle?.addEventListener("click", () => {
+        const open = nav?.classList.toggle("is-open") ?? false;
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    </script>
+  </body>
+</html>

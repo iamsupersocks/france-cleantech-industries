@@ -1,0 +1,50 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { withBase } from "../lib/paths";
+
+const page = await getEntry("pages", "documents");
+if (!page) {
+  throw new Error("Missing documents content");
+}
+const { Content } = await render(page);
+const documents = (await getCollection("documents")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base
+  title={page.data.title}
+  description={page.data.description}
+  path="/documents-france-cleantech-industries/"
+>
+  <div class="shell">
+    <header class="page-head">
+      <p class="hero-kicker">Bibliothèque</p>
+      <h1>{page.data.title}</h1>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <ol class="doc-list">
+      {
+        documents.map((document) => (
+          <li class="doc-item">
+            {document.data.category ? (
+              <p class="hero-kicker">{document.data.category}</p>
+            ) : null}
+            <h2>
+              <a href={withBase(`/document/${document.id}/`)}>
+                {document.data.title}
+              </a>
+            </h2>
+            <p>{document.data.summary}</p>
+            <p>
+              <a href={withBase(document.data.file)}>Télécharger le PDF</a>
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</Base>

@@ -1,0 +1,48 @@
+---
+import { getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { siteConfig } from "../lib/site";
+
+const page = await getEntry("pages", "notre-histoire");
+if (!page) {
+  throw new Error("Missing histoire content");
+}
+const { Content } = await render(page);
+---
+
+<Base
+  title={page.data.title}
+  description={page.data.description}
+  path="/notre-histoire/"
+>
+  <div class="shell">
+    <header class="page-head">
+      <p class="hero-kicker">À propos</p>
+      <h1>{page.data.title}</h1>
+    </header>
+    <section class="section prose">
+      <Content />
+    </section>
+    <section class="section">
+      <h2>Les membres du bureau</h2>
+      <ul class="bureau-list">
+        {
+          siteConfig.bureau.map((person) => (
+            <li class="bureau-item">
+              <p class="hero-kicker">{person.role}</p>
+              <h2>{person.name}</h2>
+              {person.bio.split("\n\n").map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+              <p>
+                <a href={person.linkedin} rel="noreferrer">
+                  Profil LinkedIn
+                </a>
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Base>
