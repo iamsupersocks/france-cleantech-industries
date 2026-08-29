@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Site en construction — France Cleantech Industries</title>
+    <meta
+      name="description"
+      content="France Cleantech Industries prépare sa nouvelle expérience en ligne."
+    />
+    <meta name="theme-color" content="#102841" />
+    <link rel="icon" href="assets/ico-fci.png" type="image/png" />
+    <style>
+      :root {
+        --paper: #f7f7f7;
+        --paper-deep: #efefef;
+        --white: #ffffff;
+        --ink: #102841;
+        --ink-soft: #3b4d63;
+        --line: rgba(16, 40, 65, 0.12);
+        --green: #35d764;
+        --blue: #4359e9;
+        --navy: #102841;
+        --max: 72rem;
+        --display: Helvetica, Arial, sans-serif;
+        --sans: Helvetica, Arial, sans-serif;
+        --button: Helvetica, Arial, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: clip;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: var(--sans);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 3px;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3.2rem;
+        z-index: 20;
+        padding: 0.5rem 0.8rem;
+        background: var(--navy);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 0.6rem;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .shell {
+        width: min(var(--max), calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        background: color-mix(in srgb, var(--white) 92%, transparent);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.85rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .brand img {
+        width: 7.4rem;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        font-family: var(--display);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1.15;
+        text-transform: uppercase;
+      }
+
+      .status-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.2rem;
+        padding: 0.3rem 0.9rem;
+        border-radius: 100px;
+        background: var(--green);
+        color: var(--navy);
+        font-family: var(--button);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      .hero {
+        position: relative;
+        padding: 2.6rem 0 3rem;
+        background: linear-gradient(
+          90deg,
+          var(--paper) 0 64%,
+          var(--white) 64% 100%
+        );
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .kicker {
+        margin: 0 0 0.7rem;
+        font-family: var(--button);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: clamp(2rem, 7vw, 3.6rem);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        color: var(--blue);
+        text-wrap: balance;
+      }
+
+      .lede {
+        margin: 0.9rem 0 0;
+        max-width: 38rem;
+        font-family: var(--display);
+        font-size: clamp(1.15rem, 3vw, 1.5rem);
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--ink-soft);
+      }
+
+      .soon {
+        margin: 1.4rem 0 0;
+        padding: 1rem 0 0;
+        max-width: 38rem;
+        border-top: 1px solid var(--line);
+        color: var(--ink);
+      }
+
+      .soon strong {
+        display: block;
+        margin-bottom: 0.25rem;
+        font-family: var(--button);
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+
+      .visual {
+        position: relative;
+        min-height: 18rem;
+        overflow: hidden;
+        border-radius: 0 0 0 2.5rem;
+        color: var(--white);
+        background:
+          linear-gradient(180deg, rgba(16, 40, 65, 0.08) 0%, var(--navy) 78%),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.05) 0 1px,
+            transparent 1px 2.4rem
+          ),
+          repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.04) 0 1px,
+            transparent 1px 2.4rem
+          ),
+          #102841;
+      }
+
+      .visual::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 0.45rem;
+        background: var(--green);
+      }
+
+      .visual-caption {
+        position: absolute;
+        left: 1.2rem;
+        right: 1.2rem;
+        bottom: 1.4rem;
+        margin: 0;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        color: #d7e0ea;
+      }
+
+      .band {
+        padding: 0 0 2.4rem;
+      }
+
+      .note-card {
+        margin-top: -1.2rem;
+        padding: 1.4rem 1.3rem;
+        max-width: 42rem;
+        color: var(--white);
+        background: var(--blue);
+        border-radius: 0 10vw 10vw 0;
+        box-shadow: 0 24px 48px -28px rgba(67, 89, 233, 0.8);
+      }
+
+      .note-card p {
+        margin: 0;
+        max-width: 36rem;
+      }
+
+      .site-footer {
+        padding: 2.2rem 0 2.4rem;
+        color: #d7e0ea;
+        background: var(--navy);
+      }
+
+      .footer-title {
+        margin: 0 0 0.5rem;
+        font-family: var(--button);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+
+      .site-footer p {
+        margin: 0;
+        max-width: 36rem;
+      }
+
+      @media (min-width: 48rem) {
+        .hero-grid {
+          grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+          align-items: center;
+        }
+
+        .visual {
+          min-height: 22rem;
+        }
+
+        .brand-name {
+          display: none;
+        }
+      }
+
+      @media (max-width: 47.99rem) {
+        .hero {
+          background: var(--paper);
+        }
+
+        .status-chip {
+          display: none;
+        }
+
+        .visual {
+          min-height: 14rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#contenu">
+          <img
+            src="assets/logo-fci.png"
+            width="352"
+            height="142"
+            alt="France Cleantech Industries"
+          />
+          <span class="brand-name">France Cleantech<br />Industries</span>
+        </a>
+        <p class="status-chip" aria-hidden="true">En construction</p>
+      </div>
+    </header>
+    <main id="contenu">
+      <section class="hero" aria-labelledby="titre-principal">
+        <div class="shell hero-grid">
+          <div>
+            <p class="kicker">Association · France · Transition industrielle</p>
+            <h1 id="titre-principal">Site en construction</h1>
+            <p class="lede">
+              France Cleantech Industries prépare sa nouvelle expérience en
+              ligne.
+            </p>
+            <p class="soon">
+              <strong>Retour prochainement</strong>
+              Cette page temporaire sera remplacée dès que la nouvelle
+              expérience sera prête.
+            </p>
+          </div>
+          <aside class="visual" aria-hidden="true">
+            <p class="visual-caption">Industrie · Process · Cleantech</p>
+          </aside>
+        </div>
+      </section>
+      <section class="band">
+        <div class="shell">
+          <div class="note-card">
+            <p>
+              France Cleantech Industries rassemble les PME industrielles
+              innovantes de la transition énergétique. Merci de votre patience
+              pendant cette mise à jour.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="shell">
+        <p class="footer-title">France Cleantech Industries</p>
+        <p>
+          Association loi 1901. Site en construction — retour prochainement.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
