@@ -13,6 +13,7 @@ const requiredFiles = [
   "actualites/index.html",
   "documents-france-cleantech-industries/index.html",
   "finance-cleantechs-industrielles-francaises/index.html",
+  "noria/index.html",
   "exora/index.html",
   "enertime/index.html",
   "sylfen/index.html",

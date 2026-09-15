@@ -160,6 +160,16 @@
     "sha256": "98cc2b2332940587d1212e19034036741be0f5eefc437bfdb07a976185a10b4f"
   },
   {
+    "path": "public/images/members/noria-logo.png",
+    "bytes": 8669,
+    "sha256": "324e0d4bbea4c899c7a3662d9b8218b564d69ca6f9ddd2a541c5ae5be60fc8a2"
+  },
+  {
+    "path": "public/images/members/noria-visuel.png",
+    "bytes": 968008,
+    "sha256": "e78068359d2618747893b6d037ba10c9a4b8e714ee0972ff44a77d385e5e2b4b"
+  },
+  {
     "path": "public/images/members/packgy.png",
     "bytes": 10569,
     "sha256": "644f74e28ead23b7a34a4c22f403ca30b958bc706c849a39e4a7fd1915bb1823"

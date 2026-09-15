@@ -35,7 +35,7 @@ Les champs `listed: false` conservent une fiche (URL WordPress) hors de l'annuai
 ## URLs conservées
 
 - `/`, `/notre-histoire/`, `/membres/`, `/contact/`, `/actualites/`
-- fiches membres à la racine (`/enertime/`, `/exora/`, …)
+- fiches membres à la racine (`/noria/`, `/exora/`, `/enertime/`, …)
 - articles à la racine (`/nouveau-site-fci/`, …)
 - `/documents-france-cleantech-industries/`
 - `/document/<slug>/`
